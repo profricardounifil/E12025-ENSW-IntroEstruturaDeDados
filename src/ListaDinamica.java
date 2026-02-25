@@ -25,11 +25,16 @@ public class ListaDinamica {
             System.out.println("Não existem elementos na lista dinâmica.");
         } else {
             No aux = this.inicio;
-            while(aux.getProx() != null) {
+//            while(aux != null && aux.getConteudo() != null) {
+//                System.out.println(aux.getConteudo());
+//                aux = aux.getProx();
+//            }
+
+            while(aux != null) {
                 System.out.println(aux.getConteudo());
                 aux = aux.getProx();
             }
-            System.out.println(aux.getConteudo());
+            //System.out.println(aux.getConteudo());
         }
     }
 
@@ -39,5 +44,50 @@ public class ListaDinamica {
         } else {
             return false;
         }
+    }
+
+    public void removerElemento(String elemento) {
+        if(inicioEstaVazio()) {
+            System.out.println("Não há elementos a serem removidos.");
+        } else {
+            if(procurarElemento(elemento)) {
+                //remover primeiro elemento isolado
+                if(this.inicio.getProx() == null) {
+                    System.out.println("Elemento + " + elemento + " removido!");
+                    this.inicio.setConteudo(null);
+                }
+                //remover qualquer nó conectado
+                else if(this.inicio.getProx() != null) {
+                    No aux = this.inicio;
+                    while(aux != null) {
+                        if (this.inicio.getConteudo().equals(elemento)) {
+                            System.out.println("Elemento " + elemento + " removido!");
+                            this.inicio = this.inicio.getProx();
+                        } else if(aux.getProx().getConteudo().equals(elemento)) {
+                            System.out.println("Elemento + " + elemento + " removido!");
+                            aux.setProx(aux.getProx().getProx());
+                        }
+                        aux = aux.getProx();
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean procurarElemento(String elemento) {
+        if(inicioEstaVazio()) {
+            System.out.println("Não há elementos a serem procurados.");
+        } else {
+            No aux = this.inicio;
+            while(aux != null) {
+                if(aux.getConteudo().equals(elemento)) {
+                    System.out.println("Elemento " + elemento + " encontrado!");
+                    return true;
+                }
+                aux = aux.getProx();
+            }
+            System.out.println("Elemento " + elemento + " não existe na lista.");
+        }
+        return false;
     }
 }
