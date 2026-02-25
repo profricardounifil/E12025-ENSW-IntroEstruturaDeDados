@@ -63,9 +63,11 @@ public class ListaDinamica {
                         if (this.inicio.getConteudo().equals(elemento)) {
                             System.out.println("Elemento " + elemento + " removido!");
                             this.inicio = this.inicio.getProx();
+                            return;
                         } else if(aux.getProx().getConteudo().equals(elemento)) {
                             System.out.println("Elemento + " + elemento + " removido!");
                             aux.setProx(aux.getProx().getProx());
+                            return;
                         }
                         aux = aux.getProx();
                     }
