@@ -53,7 +53,7 @@ public class ListaDinamica {
             if(procurarElemento(elemento)) {
                 //remover primeiro elemento isolado
                 if(this.inicio.getProx() == null) {
-                    System.out.println("Elemento + " + elemento + " removido!");
+                    System.out.println("Elemento " + elemento + " removido!");
                     this.inicio.setConteudo(null);
                 }
                 //remover qualquer nó conectado
@@ -65,7 +65,7 @@ public class ListaDinamica {
                             this.inicio = this.inicio.getProx();
                             return;
                         } else if(aux.getProx().getConteudo().equals(elemento)) {
-                            System.out.println("Elemento + " + elemento + " removido!");
+                            System.out.println("Elemento " + elemento + " removido!");
                             aux.setProx(aux.getProx().getProx());
                             return;
                         }

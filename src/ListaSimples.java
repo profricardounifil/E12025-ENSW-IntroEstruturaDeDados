@@ -8,7 +8,7 @@ public class ListaSimples {
     public void adicionarElemento(String elemento) {
         if(!this.estaCheia()) {
             this.lista[encontrarPosicao()] = elemento;
-            System.out.println("Elemento " + elemento + " adicionado com sucesso!");
+            System.out.println("Elemento " + elemento + "  adicionado com sucesso!");
         }
     }
 
