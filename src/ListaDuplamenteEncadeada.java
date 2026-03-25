@@ -67,10 +67,9 @@ public class ListaDuplamenteEncadeada {
                             return;
                         }
                         else if(this.ultimo.getConteudo() == conteudo) {
-                            System.out.println("aa");
-                            aux.setProx(aux.getProx().getProx());
-                            this.ultimo = aux;
-                            System.out.println(this.ultimo.getConteudo());
+
+                            this.ultimo = this.ultimo.getAnt();
+                            this.ultimo.setProx(null);
                             return;
                         }
                     }
